@@ -148,12 +148,6 @@ Execute the notebook cells to explore preprocessing, model training, evaluation,
 - Scikit-learn
 - Jupyter Notebook
 
-## Future Improvements
-
-- Implement transfer learning using ResNet or EfficientNet.
-- Add Grad-CAM for model interpretability.
-- Develop a web interface for MRI image classification.
-- Evaluate the model on independent datasets.
 
 ## Disclaimer
 
