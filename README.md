@@ -1,23 +1,22 @@
+# Brain Tumor MRI Classification
 
-# Brain Tumor MRI Classifier
+A deep learning application developed using **PyTorch** and a custom Convolutional Neural Network (CNN) to classify brain MRI scans into four categories: **Glioma, Meningioma, No Tumor, and Pituitary Tumor**, achieving **94.56% test accuracy**.
 
-A deep learning project built with **PyTorch** and a custom Convolutional Neural Network (CNN) to classify brain MRI images into four categories: **Glioma, Meningioma, No Tumor, and Pituitary Tumor**.
-
-The model achieves **94.56% test accuracy** and supports image classification with confidence-based predictions.
-
-## Overview
+## Project Overview
 
 - **Framework:** PyTorch
 - **Task:** Multi-Class Image Classification
-- **Model:** Custom CNN
-- **Input Size:** 224 × 224 × 3
-- **Training Images:** 5,600
-- **Testing Images:** 1,600
-- **Number of Classes:** 4
+- **Architecture:** Custom CNN
+- **Input Resolution:** 224 × 224 × 3
+- **Training Samples:** 5,600
+- **Testing Samples:** 1,600
+- **Classes:** 4
 - **Test Accuracy:** 94.56%
 - **Weighted F1-Score:** 0.94
 
 ## Model Architecture
+
+The model consists of four convolutional layers for feature extraction, followed by fully connected layers for classification.
 
 ```text
 Input Image (224 × 224 × 3)
@@ -47,61 +46,62 @@ Dropout (0.6)
 Linear (256 → 4)
           |
           v
-Predicted Class
+Class Prediction
 ```
 
 ## Dataset
 
-The dataset contains four categories of brain MRI images:
+The dataset comprises 7,200 brain MRI images distributed across four classes:
 
-- Glioma
-- Meningioma
-- No Tumor
-- Pituitary Tumor
+- **Glioma**
+- **Meningioma**
+- **No Tumor**
+- **Pituitary Tumor**
+
+The images are divided into 5,600 training samples and 1,600 testing samples.
 
 ## Data Preprocessing
 
-The following transformations are applied during preprocessing:
+Image preprocessing and augmentation techniques are applied to improve model generalization:
 
 - Resize images to 224 × 224 pixels.
-- Random horizontal flipping.
-- Random rotation.
-- Random affine transformations.
-- Brightness and contrast adjustment.
-- Convert images to tensors.
-- Normalize using ImageNet mean and standard deviation.
+- Apply random horizontal flips and rotations.
+- Perform random affine transformations.
+- Adjust brightness and contrast.
+- Convert images into tensors.
+- Normalize images using ImageNet statistics.
 
 ## Training Configuration
 
-| Parameter | Value |
+| Parameter | Configuration |
 |---|---|
 | Optimizer | Adam |
 | Learning Rate | `1e-4` |
 | Weight Decay | `1e-4` |
 | Loss Function | Cross Entropy Loss |
-| Epochs | 80 |
+| Training Epochs | 80 |
 | Batch Size | 32 |
-| Scheduler | ReduceLROnPlateau |
-| Dropout | 0.6 |
+| Learning Rate Scheduler | ReduceLROnPlateau |
+| Dropout Rate | 0.6 |
 
-## Results
+## Performance Evaluation
 
-| Metric | Score |
+| Metric | Result |
 |---|---:|
 | Training Accuracy | 99.07% |
 | Test Accuracy | **94.56%** |
 | Weighted F1-Score | **0.94** |
 
-The model is evaluated using a classification report and confusion matrix.
+Model performance is assessed using a classification report and confusion matrix to analyze classification effectiveness and prediction errors.
 
 ## Prediction Example
 
 ```text
-Prediction: Meningioma
-Confidence: 99.99%
+Predicted Class: Meningioma
+Confidence Score: 99.99%
 ```
 
-The confidence score represents the model's estimated confidence in its prediction and should not be interpreted as clinical certainty.
+The confidence score reflects the model's estimated confidence in its prediction and does not represent clinical certainty.
 
 ## Project Structure
 
@@ -115,28 +115,28 @@ brain-tumor-mri-classifier/
     └── NeuroScan_AI_model.pth
 ```
 
-## Installation
+## Installation and Execution
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone <your-repository-url>
 cd brain-tumor-mri-classifier
 ```
 
-### 2. Install dependencies
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Run the notebook
+### 3. Launch the Notebook
 
 ```bash
 jupyter notebook MRI-Brain-Tumor-Classifier.ipynb
 ```
 
-Execute the notebook cells to explore preprocessing, model training, evaluation, and predictions.
+Run the notebook cells to perform data preprocessing, model training, performance evaluation, and MRI image classification.
 
 ## Technologies Used
 
@@ -148,7 +148,6 @@ Execute the notebook cells to explore preprocessing, model training, evaluation,
 - Scikit-learn
 - Jupyter Notebook
 
-
 ## Disclaimer
 
-This project is intended for **educational and research purposes only**. It is not a clinically validated diagnostic system and must not replace professional medical evaluation.
+This project is intended solely for **educational and research purposes**. It has not been clinically validated and should not be used as a standalone diagnostic tool or as a substitute for professional medical evaluation.
